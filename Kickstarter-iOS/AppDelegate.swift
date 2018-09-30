@@ -83,15 +83,18 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     self.viewModel.outputs.goToDiscovery
       .observeForUI()
-      .observeValues { [weak self] in self?.rootTabBarController?.switchToDiscovery(params: $0) }
+      .observeValues {
+        [weak self] in self?.rootTabBarController?.switchToDiscovery(params: $0) }
 
     self.viewModel.outputs.goToActivity
       .observeForUI()
-      .observeValues { [weak self] in self?.rootTabBarController?.switchToActivities() }
+      .observeValues {
+        [weak self] in self?.rootTabBarController?.switchToActivities() }
 
     self.viewModel.outputs.goToDashboard
       .observeForUI()
-      .observeValues { [weak self] in self?.rootTabBarController?.switchToDashboard(project: $0) }
+      .observeValues {
+        [weak self] in self?.rootTabBarController?.switchToDashboard(project: $0) }
 
     self.viewModel.outputs.goToLiveStream
       .observeForControllerAction()
@@ -117,11 +120,13 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     self.viewModel.outputs.goToSearch
       .observeForUI()
-      .observeValues { [weak self] in self?.rootTabBarController?.switchToSearch() }
+      .observeValues {
+        [weak self] in self?.rootTabBarController?.switchToSearch() }
 
     self.viewModel.outputs.goToMobileSafari
       .observeForUI()
-      .observeValues { UIApplication.shared.openURL($0) }
+      .observeValues {
+        UIApplication.shared.openURL($0) }
 
     self.viewModel.outputs.registerForRemoteNotifications
       .observeForUI()
